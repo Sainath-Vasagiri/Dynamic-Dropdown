@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="home.css" rel="stylesheet" type="text/css">
+    <link href="coupon.css" rel="stylesheet" type="text/css">
+    <script src="home.js"></script>
+</head>
+
+<body>
+    <div class="popup">
+        <div class="contentBox">
+            <div class="close">
+
+            </div>
+            <div class="imgBox">
+                <img src="gift.png">
+            </div>
+            <div class="content">
+                <div>
+                    <h3>Special Offer</h3>
+                    <h2>75<sup>%</sup><span>Off</span></h2>
+                    <p>
+                        A dosa is a thin pancake or crepe originating from South India.<br>
+                        <a href="#">Get the Deal</a>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const popup = document.querySelector('.popup');
+        const close = document.querySelector('.close');
+
+        window.onload = function () {
+            setTimeout(function () {
+                popup.style.display = "block"
+            }, 2000)
+        }
+        close.addEventListener('click', () => {
+            popup.style.display = "none"
+        })
+    </script>
+
+    <script src="https://kit.fontawesome.com/3fe16e504a.js"></script>
+    <span id="toggle-switch" title="Toggle Dark Theme" style="margin-left: 1331px; background-color: grey">
+        <i class="fas fa-moon" id="toggle-switch"></i>
+    </span>
+    <script>
+        const DARK_MODE = 'dark';
+        const LIGHT_MODE = 'light';
+        const THEME = 'mode';
+
+        document.addEventListener(
+            'DOMContentLoaded', (event) => {
+                applyTheme();
+                const toggleSwitch = document.getElementById('toggle-switch');
+                toggleSwitch.onclick = function () {
+                    let currentMode = localStorage.getItem(THEME);
+                    localStorage.setItem(
+                        THEME,
+                        currentMode === DARK_MODE ? LIGHT_MODE : DARK_MODE
+                    );
+                    applyTheme();
+                }
+            }
+        );
+
+        function applyTheme() {
+            let html = document.documentElement;
+            let currentMode = localStorage.getItem(THEME);
+            if (currentMode === DARK_MODE) {
+                html.classList.add(DARK_MODE);
+                document.getElementById('toggle-switch').innerHTML =
+                    '<i class="fas fa-sun"></i>';
+            }
+            else {
+                html.classList.remove(DARK_MODE);
+                document.getElementById('toggle-switch').innerHTML =
+                    '<i class="fas fa-moon"></i>';
+            }
+        }
+    </script>
+
+    <!--Header Start-->
+    <div id="header">
+        <div id="icon">
+            <h1>
+                <a href="list.html">Zomato..!!</a>
+            </h1>
+        </div>
+        <div id="Social">
+            <a href="https://www.facebook.com/" target="_blank">
+                <img src="fb.png" alt="Facebook" class="slogo" />
+            </a>
+            <a href="https://www.instagram.com/" target="_blank">
+                <img src="insta.png" alt="Instagram" class="slogo" />
+            </a>
+            <a href="https://www.youtube.com/" target="_blank">
+                <img src="ytube.png" alt="Youtube" class="slogo" />
+            </a>
+            <a href="https://www.twitter.com/" target="_blank">
+                <img src="twitter.png" alt="Youtube" class="slogo" />
+            </a>
+        </div>
+    </div>
+    <!--Header End-->
+    <!--Search Start-->
+    <div id="Search">
+        <div id="logo">
+            <span>Z!</span>
+        </div>
+        <div id="Caption">
+            <h2>
+                Find the Best Restaurants Near You..!!
+            </h2>
+            <div id="shadow">
+
+            </div>
+            <div id="dropdown">
+                <select id="city" onChange="getHotel()">
+
+                </select>
+                <select class="restaurantSelect" id="hotels">
+                   
+                </select>
+            </div>
+        </div>
+    </div>
+    <!--Search End-->
+    <!--Quick Search Start-->
+    <div id="QuickSearch">
+        <span id="heading">
+            Quick Search
+        </span>
+        <span id="subheading">
+            Discover Restaurants By Meal
+        </span>
+        <div id="boxcontainer">
+            <div id="box1">
+                <div id="boxheading">
+                    <center>
+                        <h3>BreakFast</h3>
+                    </center>
+                </div>
+                <img src="breakfast.jpg" alt="BreakFast">
+            </div>
+            <div id="box1">
+                <div id="boxheading">
+                    <center>
+                        <h3>Lunch</h3>
+                    </center>
+                </div>
+                <img src="lunch.jpg" alt="Lunch">
+            </div>
+            <div id="box1">
+                <div id="boxheading">
+                    <center>
+                        <h3>Snacks</h3>
+                    </center>
+                </div>
+                <img src="evening snacks.jpg" alt="Snacks">
+            </div>
+            <div id="box1">
+                <div id="boxheading">
+                    <center>
+                        <h3>Dinner</h3>
+                    </center>
+                </div>
+                <img src="dinner.jpg" alt="Dinner">
+            </div>
+        </div>
+    </div>
+    <!--Quick Search End-->
+    <script>
+        window.onload = getCity()
+    </script>
+</body>
+<!--Footer Start-->
+<footer>
+    <hr>
+    <center>
+        <h4>
+            &copy;Vasagiri Sainath<br>
+            All Rights Reserved 2022.
+        </h4>
+    </center>
+</footer>
+<!--Footer End-->
+
+</html>
